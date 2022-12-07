@@ -1,0 +1,34 @@
+<!-- contentFor() digunakan untuk supaya bisa dipanggil value yang diisikan didalamnya ke bagian pecahan konten -->
+<%- contentFor('content') %> 
+<h1>Web server node js</h1>
+<p>welcome to my contact page</p>
+
+<table class="table w-75">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <!-- mengecek apakah ada data di variable cont -->
+        <% if (cont.length < 1) { %> <!-- jika data kurang dari 1 atau tidak ada data-->
+            <p>data tidak ada</p> <!--tampilkan alert disamping-->
+        <% } else { %> <!-- jika ada data-->
+        <!-- lakukan perulangan data menggunakan foreach -->
+            <% i = 0 %> 
+            <% cont.forEach(cnt => { %>
+                <tr>
+                    <td><%= i+=1 %> </td>
+                    <td><%= cnt.name %></td>
+                    <td><%= cnt.email %></td>
+                    <td><%= cnt.phone %> </td>
+                </tr>
+            <% }) %>
+        <% }%>
+    </tr>
+    </tbody>
+</table>
